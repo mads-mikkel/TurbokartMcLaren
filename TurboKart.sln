@@ -43,6 +43,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurboKart.Infrastructure.Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurboKart.Presentation.Websites.TurboKartBookingManagement", "TurboKart.Presentation.Websites.TurboKartBookingManagement\TurboKart.Presentation.Websites.TurboKartBookingManagement.csproj", "{AC4D410F-ECA0-4367-B38E-65143E38C9FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DB5D70A0-FBAC-4229-B781-C86BD72A4DC5}"
+	ProjectSection(SolutionItems) = preProject
+		Pages.txt = Pages.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
