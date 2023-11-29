@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace TurboKart.Tests.UoWRazorTestApp.Pages
 {
@@ -11,6 +10,7 @@ namespace TurboKart.Tests.UoWRazorTestApp.Pages
         {
             _logger = logger;
         }
+
 
         public void OnGet()
         {
