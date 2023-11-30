@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TurboKart.Presentation.Websites.TurboKartBookingManagement.Models;
 
 namespace TurboKart.Presentation.Websites.TurboKartBookingManagement.Controllers
 {
@@ -19,9 +20,17 @@ namespace TurboKart.Presentation.Websites.TurboKartBookingManagement.Controllers
 
 		[HttpPost]
 		[ActionName("Login")]
-		public IActionResult LoginVerify()
+		public IActionResult LoginVerify(LoginViewModel loginViewModel)
 		{
-			return RedirectToAction("Index", "Admin");
+			if (ModelState.IsValid)
+			{
+				if (loginViewModel.Username.ToLower() == "test" && loginViewModel.Password == "test")
+				{
+					return RedirectToAction("Index", "Admin");
+				}
+			}
+
+			return View();
 		}
 
 		// TurboKart Booking Mangement 2, 3, and 4
