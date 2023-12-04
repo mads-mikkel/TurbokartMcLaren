@@ -60,14 +60,21 @@ namespace TurboKart.Presentation.Websites.TurboKartBookingManagement.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				// Create new booking to add to db
+				// Create new customer Object to add to Database
+				Customer customer = new Customer
+				{
+					Name = newBookingViewModel.Name,
+					CustomerId = 0,
+					Bookings = null
+				};
+
+				// Create new Booking Object to add to Database
 				Booking booking = new Booking
 				{
 					// Convert DateOnly and TimeOnly to DateTime
 					Start = newBookingViewModel.Date.ToDateTime(newBookingViewModel.Time),
-					Customer = null,
-					// TEMP Customer ID
-					CustomerId = 1,
+					Customer = customer,
+					CustomerId = 0,
 				};
 
 				bookingUseCase.BookNew(booking);
