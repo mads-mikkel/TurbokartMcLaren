@@ -61,11 +61,12 @@ namespace TurboKart.Presentation.Apis.TurboKartAPI.Controllers
 		}
 
 		[HttpPost("new")]
-		public ActionResult<Customer> NewCustomer(Customer customer)
+		public ActionResult NewCustomer(Customer customer)
 		{
 			try
 			{
-				return Ok(customerUseCase.NewCustomer(customer));
+				customerUseCase.NewCustomer(customer);
+				return Ok();
 			}
 			catch (Exception e)
 			{
