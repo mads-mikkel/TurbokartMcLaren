@@ -1,3 +1,6 @@
+using TurboKart.Application.Interfaces;
+using TurboKart.Infrastructure.Networking.Services;
+
 namespace TurboKart.Presentation.Websites.TurboKartBookingManagement
 {
 	public class Program
@@ -8,6 +11,8 @@ namespace TurboKart.Presentation.Websites.TurboKartBookingManagement
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
+
+			builder.Services.AddTransient<IBookingUseCase, BookingService>();
 
 			var app = builder.Build();
 

@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TurboKart.Application.Interfaces\TurboKart.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\TurboKart.Infrastructure.Networking.Services\TurboKart.Infrastructure.Networking.Services.csproj" />
+  </ItemGroup>
+
 </Project>
