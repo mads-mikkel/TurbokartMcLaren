@@ -4,46 +4,50 @@ using TurboKart.Infrastructure.Persistence.Interfaces;
 
 namespace TurboKart.Application.UseCases
 {
-    public class CustomerUseCase : ICustomerUseCase
-    {
-        private readonly IUnitOfWork unitOfWork;
+	public class CustomerUseCase : ICustomerUseCase
+	{
+		private readonly IUnitOfWork unitOfWork;
 
-        public CustomerUseCase(IUnitOfWork unitOfWork)
-        {
-            this.unitOfWork = unitOfWork;
-        }
+		public CustomerUseCase(IUnitOfWork unitOfWork)
+		{
+			this.unitOfWork = unitOfWork;
+		}
 
 
-        public IEnumerable<Customer> GetAllCustomers()
-        {
-            ICustomerRepository customerRepository = unitOfWork.CustomerRepository;
-            return customerRepository.GetAll();
-        }
+		public IEnumerable<Customer> GetAllCustomers()
+		{
+			ICustomerRepository customerRepository = unitOfWork.CustomerRepository;
+			return customerRepository.GetAll();
+		}
 
-        public Customer GetSingleCustomer(object id)
-        {
-            ICustomerRepository customerRepository = unitOfWork.CustomerRepository;
-            return customerRepository.GetBy(id);
-        }
+		public Customer GetSingleCustomer(object id)
+		{
+			ICustomerRepository customerRepository = unitOfWork.CustomerRepository;
+			return customerRepository.GetBy(id);
+		}
 
-        public void Update(Customer customer)
-        {
-            ICustomerRepository customerRepository = unitOfWork.CustomerRepository;
-            customerRepository.Update(customer);
+		public void Update(Customer customer)
+		{
+			ICustomerRepository customerRepository = unitOfWork.CustomerRepository;
+			customerRepository.Update(customer);
 
-            unitOfWork.Commit();
-        }
-        public void Delete(Customer customer)
-        {
-            ICustomerRepository customerRepository = unitOfWork.CustomerRepository;
-            customerRepository.Delete(customer);
+			unitOfWork.Commit();
+		}
+		public void Delete(Customer customer)
+		{
+			ICustomerRepository customerRepository = unitOfWork.CustomerRepository;
+			customerRepository.Delete(customer);
 
-            unitOfWork.Commit();
-        }
+			unitOfWork.Commit();
+		}
 
-        public static void NewCustomer(Customer customer)
-        {
-            throw new NotImplementedException();
-        }
-    }
+		public Customer NewCustomer(Customer customer)
+		{
+			ICustomerRepository customerRepository = unitOfWork.CustomerRepository;
+			customerRepository.Save(customer);
+
+			unitOfWork.Commit();
+			return customer;
+		}
+	}
 }
