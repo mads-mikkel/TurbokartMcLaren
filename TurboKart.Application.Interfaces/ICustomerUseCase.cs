@@ -8,6 +8,6 @@ namespace TurboKart.Application.Interfaces
 		Customer GetSingleCustomer(object id);
 		void Update(Customer customer);
 		void Delete(Customer customer);
-		void NewCustomer(Customer customer);
+		Customer NewCustomer(Customer customer);
 	}
 }

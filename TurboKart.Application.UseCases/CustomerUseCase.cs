@@ -41,12 +41,13 @@ namespace TurboKart.Application.UseCases
 			unitOfWork.Commit();
 		}
 
-		public void NewCustomer(Customer customer)
+		public Customer NewCustomer(Customer customer)
 		{
 			ICustomerRepository customerRepository = unitOfWork.CustomerRepository;
 			customerRepository.Save(customer);
 
 			unitOfWork.Commit();
+			return customer;
 		}
 	}
 }
