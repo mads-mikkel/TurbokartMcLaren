@@ -65,7 +65,8 @@ namespace TurboKart.Presentation.Apis.TurboKartAPI.Controllers
 		{
 			try
 			{
-				return Ok(customerUseCase.NewCustomer(customer));
+				customerUseCase.NewCustomer(customer);
+				return Ok(customer);
 			}
 			catch (Exception e)
 			{
