@@ -34,7 +34,7 @@ namespace TurboKart.Presentation.Websites.TurboKartBookingManagement.Controllers
         // GET: BookingCRUDController
         public ActionResult Index()
         {
-            return View();
+            return View(mockBookings.Values);
         }
 
         // GET: BookingCRUDController/Details/5
@@ -83,7 +83,7 @@ namespace TurboKart.Presentation.Websites.TurboKartBookingManagement.Controllers
                 createViewModel.Date,
                 createViewModel.Time
             ));
-            return RedirectToAction("Details", new { id });
+            return RedirectToAction(nameof(Details), new { id });
         }
 
         // GET: BookingCRUDController/Edit/5
@@ -124,7 +124,7 @@ namespace TurboKart.Presentation.Websites.TurboKartBookingManagement.Controllers
             mock.Date = editViewModel.Date;
             mock.Time = editViewModel.Time;
             mockBookings[id] = mock;
-            return RedirectToAction("Details", new { id });
+            return RedirectToAction(nameof(Details), new { id });
         }
 
         // GET: BookingCRUDController/Delete/5
