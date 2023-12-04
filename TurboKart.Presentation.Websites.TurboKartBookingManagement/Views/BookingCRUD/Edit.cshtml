@@ -1,4 +1,5 @@
-﻿@model TurboKart.Presentation.Websites.TurboKartBookingManagement.Models.EditViewModel
+﻿@using TurboKart.Presentation.Websites.TurboKartBookingManagement.Models.BookingCRUD
+@model TurboKart.Presentation.Websites.TurboKartBookingManagement.Models.BookingCRUD.EditViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,26 +7,50 @@
 
 <h1>Edit</h1>
 
-<h4>EditViewModel</h4>
+<h4>EditViewModel - @Model.PrimaryKey</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
+                <input type="hidden" asp-for="PrimaryKey" class="form-control" />
+                <span asp-validation-for="PrimaryKey" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CustomerName" class="control-label"></label>
-                <input asp-for="CustomerName" class="form-control" />
+                <input type="text" asp-for="CustomerName" class="form-control" />
                 <span asp-validation-for="CustomerName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Start" class="control-label"></label>
-                <input asp-for="Start" class="form-control" />
-                <span asp-validation-for="Start" class="text-danger"></span>
+                <label asp-for="CustomerEmail" class="control-label"></label>
+                <input type="email" asp-for="CustomerEmail" class="form-control" />
+                <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerPhone" class="control-label"></label>
+                <input type="tel" asp-for="CustomerPhone" class="form-control" />
+                <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GrandprixType" class="control-label"></label>
+                <select asp-for="GrandprixType" class="form-control">
+                    @foreach (var item in Enum.GetValues<GrandprixType>())
+                    {
+                        <option value="@item">@item.ToString().Replace('_', ' ')</option>
+                    }
+                </select>
+                <span asp-validation-for="GrandprixType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverCount" class="control-label"></label>
+                <input asp-for="DriverCount" class="form-control" />
+                <span asp-validation-for="DriverCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTime" class="control-label"></label>
+                <input asp-for="DateTime" class="form-control" />
+                <span asp-validation-for="DateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
