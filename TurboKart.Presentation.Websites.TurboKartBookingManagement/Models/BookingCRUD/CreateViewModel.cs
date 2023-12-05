@@ -9,7 +9,7 @@ namespace TurboKart.Presentation.Websites.TurboKartBookingManagement.Models.Book
         public string CustomerName { get; set; } = string.Empty;
         [BindProperty, Required, RegularExpression("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", ErrorMessage = "Please enter a valid email address.")]
         public string CustomerEmail { get; set; } = string.Empty;
-        [BindProperty, Required, RegularExpression("^\\+(?:[0-9] ?){6,14}[0-9]$", ErrorMessage = "Please enter a valid phone number.")]
+        [BindProperty, Required, RegularExpression("^(?:[0-9][- ]?){6,14}[0-9]$", ErrorMessage = "Please enter a valid phone number.")]
         public string CustomerPhone { get; set; } = string.Empty;
         [BindProperty, Required]
         public GrandprixType GrandprixType { get; set; }
